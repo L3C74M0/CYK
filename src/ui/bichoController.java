@@ -1,5 +1,8 @@
 package ui;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,11 +30,12 @@ public class bichoController {
     private TextField w;
 
     @FXML
-    void generate(ActionEvent event) {   	
+    void generate(ActionEvent event) throws FileNotFoundException {   	
+    	saveGrammar();
     	boolean is = CYK.doSteps(w.getText());
     	if(is) {
     		Alert info = new Alert(AlertType.CONFIRMATION);
-			info.setTitle("ERROR");
+			info.setTitle("EXITO");
 			info.setHeaderText(null);
 			info.initStyle(StageStyle.UTILITY);
 			info.setContentText("Si la genera");
@@ -47,11 +51,12 @@ public class bichoController {
     }
 
     @FXML
-    void initialize() {
-    	
-    }
+    void initialize() {}
     
-    protected void saveGrammar() {
-    	
+    protected void saveGrammar() throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(new File("src\\grammar.txt"));
+        String r = grammar.getText();
+        pw.print(r);
+        pw.close();
     }
 }

@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("bichoController.fxml"));
 		Scene scene = new Scene(root);
-		stage.setTitle("CYK");
+		stage.setTitle("El Bicho CYK");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

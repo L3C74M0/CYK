@@ -15,11 +15,17 @@ public class CYK {
 
 	public static boolean doSteps(String w) {
 		word = w;
+		try {
+			parseGrammar();
+		} catch (FileNotFoundException e) {
+			System.out.println("Pone bien el file");
+		}
 		String[][] cykTable = createCYKTable();
 		return doCYK(doCyk(cykTable));
 	}
 
 	public static boolean doCYK(String[][] cykTable) {
+		
 		if (cykTable[cykTable.length - 1][cykTable[cykTable.length - 1].length - 1].contains(startingSymbol)) {
 			return true;
 		} else {
@@ -150,8 +156,7 @@ public class CYK {
 	}
 	
 	public static void parseGrammar() throws FileNotFoundException{
-		File file = new File("grammar.txt");
-        Scanner input = new Scanner(file);
+        Scanner input = openFile();
         ArrayList<String> tmp = new ArrayList<>();
         int line = 2;
 
@@ -175,5 +180,15 @@ public class CYK {
             tmp.clear();
         }
         input.close();
+    }
+	
+    public static Scanner openFile(){
+        try{
+            return new Scanner(new File("src\\grammar.txt"));
+        }catch(FileNotFoundException e){
+            System.out.println("Error: Can't find or open the file: ");
+            System.exit(1);
+            return null;
+        }
     }
 }
