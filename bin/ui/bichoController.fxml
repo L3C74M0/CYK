@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.bichoController">
+   <children>
+      <TextField fx:id="grammar" layoutX="173.0" layoutY="31.0" />
+      <TextField fx:id="w" layoutX="173.0" layoutY="62.0" />
+      <Label layoutX="24.0" layoutY="35.0" text="Gramatica G en FNC" />
+      <Label layoutX="24.0" layoutY="66.0" text="Cadena de n terminales w" />
+      <Button layoutX="174.0" layoutY="95.0" mnemonicParsing="false" onAction="#generate" text="¿La gramática genera w?" />
+      <ImageView fitHeight="115.0" fitWidth="114.0" layoutX="341.0" layoutY="17.0">
+         <image>
+            <Image url="@../../img/elBicho.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
