@@ -6,10 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.StageStyle;
+import model.CYK;
 
 public class bichoController {
+	protected CYK cyk;
 
     @FXML
     private ResourceBundle resources;
@@ -18,14 +21,14 @@ public class bichoController {
     private URL location;
 
     @FXML
-    private TextField grammar;
+    private TextArea grammar;
 
     @FXML
     private TextField w;
 
     @FXML
-    void generate(ActionEvent event) {
-    	boolean is = false;
+    void generate(ActionEvent event) {   	
+    	boolean is = CYK.doSteps(w.getText());
     	if(is) {
     		Alert info = new Alert(AlertType.CONFIRMATION);
 			info.setTitle("ERROR");
@@ -45,6 +48,10 @@ public class bichoController {
 
     @FXML
     void initialize() {
-
+    	
+    }
+    
+    protected void saveGrammar() {
+    	
     }
 }
